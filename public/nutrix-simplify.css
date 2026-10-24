@@ -1,0 +1,245 @@
+/* Nutrix simplify: loaded last. Removes duplicated blocks, keeps the essentials, mobile first. */
+/* HOME: remove the 3 promo cards (they only repeated the scan / journal buttons) */
+#pulse-dietary{display:none!important}
+.pulse-articles{padding-top:28px!important}
+/* ARTICLES: one card under the other, always */
+.pulse-articles .nx-morocco-items,#nx-morocco .nx-morocco-items{display:grid!important;grid-template-columns:1fr!important;gap:14px!important;overflow:visible!important}
+.pulse-articles .nx-morocco-items>*,#nx-morocco .nx133-product{width:100%!important;flex:initial!important;max-width:none!important}
+.pulse-articles .nx-morocco-image,#nx-morocco .nx-morocco-image{height:150px!important;display:flex;align-items:center;justify-content:center;background:#f3f6f4;border-radius:14px;overflow:hidden}
+.pulse-articles .nx-morocco-image img,#nx-morocco .nx-morocco-image img{max-height:150px!important;width:auto!important;max-width:100%;object-fit:contain}
+@media(min-width:900px){.pulse-articles .nx-morocco-items,#nx-morocco .nx-morocco-items{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+/* HEALTH: keep today / goals / activity / calorie trend. Hide coach, quick actions (scan duplicate), daily balance (duplicate), fake demo journey */
+.nh-trainer,.nh-recommend,.nh-output,.nh-food{display:none!important}
+.nh-welcome{display:none!important}
+.nh-existing>summary{background:#16805a!important;color:#fff!important;border-radius:16px!important;padding:16px 18px!important;font-weight:800!important;list-style:none}
+.nh-existing>summary span{display:block;font-weight:500;opacity:.85;font-size:12px;margin-top:3px}
+.nh-existing>summary svg{stroke:#fff!important}
+/* SCANNER page: one scan flow. Remove duplicate buttons, fold the compare tool */
+body #page-nutri .nutri-search-card .nutri-inline-actions,body #page-nutri div.nutri-inline-actions{display:none!important}
+.nutri-data-credit{font-size:11px}
+.nx-acc-toggle{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:15px 16px;border:1px solid #d7e5dc;border-radius:16px;background:#fff;color:#153222;font:700 15px/1.3 inherit;cursor:pointer;text-align:left}
+.nx-acc-toggle::after{content:"▾";transition:transform .2s}
+.nx-acc.open>.nx-acc-toggle::after{transform:rotate(180deg)}
+.nx-acc:not(.open)>*:not(.nx-acc-toggle){display:none!important}
+.nx-acc:not(.open){padding:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
+/* JOURNAL / discovery: search + recents only. Scan, search and AI cards repeated other tabs */
+.explore-actions,.explore-panels,#space-modules{display:none!important}
+.explore-hero{padding:18px!important}
+.explore-hero p{display:none!important}
+/* page banners: shorter on every page */
+.nx-banner p{display:none!important}
+.nx-banner{padding-top:14px!important;padding-bottom:14px!important;min-height:0!important}
+/* MOBILE */
+@media(max-width:700px){
+  body.pulse-shell #page-home>.pulse-home>.pulse-hero,body.pulse-shell .pulse-hero{min-height:0!important;height:auto!important}
+  body.pulse-shell .pulse-hero .pulse-hero-inner{padding:112px 0 40px!important}
+  .pulse-hero h1{font-size:30px!important;line-height:1.12!important}
+  .pulse-hero p{font-size:15px!important}
+  .pulse-section-head p{display:none}
+  .pulse-articles .pulse-section-head h2{font-size:24px!important}
+}
+
+.nh-existing>summary span{color:#fff!important;opacity:.9}
+
+/* NAV: 4 main tabs + Plus */
+.pulse-nav-links .tab.nx-nav-hidden{display:none!important}
+.nx-more-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:transparent;border:0;color:inherit;font:inherit;cursor:pointer;padding:6px 4px;min-width:56px}
+.nx-more-btn .pulse-nav-label{font-size:11px;font-weight:700}
+.nx-more-sheet{position:fixed;left:12px;right:12px;bottom:84px;z-index:9999;background:#fff;color:#153222;border-radius:20px;box-shadow:0 18px 50px rgba(15,23,42,.28);padding:8px;display:grid;gap:4px;max-width:420px;margin-left:auto}
+.nx-more-sheet[hidden]{display:none}
+.nx-more-sheet button{display:flex;align-items:center;gap:14px;text-align:left;border:0;background:transparent;padding:14px;border-radius:14px;font-size:24px;cursor:pointer;color:inherit}
+.nx-more-sheet button:hover,.nx-more-sheet button:active{background:#eef6f1}
+.nx-more-sheet b{display:block;font-size:16px}.nx-more-sheet small{display:block;font-size:12.5px;opacity:.7;font-weight:400}
+@media(min-width:701px){.nx-more-sheet{left:96px;right:auto;bottom:24px;margin:0}}
+/* HOME: two big buttons */
+.pulse-hero-cta{display:grid!important;gap:12px!important;grid-template-columns:1fr!important}
+.nx-big{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:60px;border-radius:18px;border:2px solid transparent;font:800 18px/1.2 inherit;cursor:pointer}
+.nx-big span{font-size:24px}
+.nx-big-primary{background:#16a06f;color:#fff;box-shadow:0 10px 26px rgba(22,160,111,.4)}
+.nx-big-secondary{background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.7);backdrop-filter:blur(6px)}
+@media(min-width:701px){.pulse-hero-cta{grid-template-columns:1fr 1fr!important;max-width:560px}}
+/* VERDICT */
+.nx-verdict{display:flex;align-items:center;gap:16px;padding:18px;border-radius:20px;background:color-mix(in srgb,var(--tone) 10%,#fff);border:2px solid var(--tone);margin:14px 0}
+.nx-verdict-emoji{font-size:54px;line-height:1}
+.nx-verdict-body strong{display:block;font-size:24px;color:var(--tone);line-height:1.2}
+.nx-verdict-list{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:4px;font-size:15px;color:#25392f}
+.nx-detail-all{margin-top:10px}
+.nx-detail-all>summary{cursor:pointer;font-weight:700;padding:14px 16px;border:1px solid #d7e5dc;border-radius:14px;background:#fff;color:#153222;list-style:none}
+.nx-detail-all[open]>summary{margin-bottom:12px}
+
+/* ===== Premium look (iOS / Yuka style): SVG icons, glass, light animations ===== */
+:root{--nx-spring:cubic-bezier(.34,1.56,.64,1)}
+.nx-ico{display:grid;place-items:center;flex:none;width:48px;height:48px;border-radius:16px;font-style:normal;background:rgba(255,255,255,.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 4px 12px rgba(0,0,0,.12);color:#fff}
+.nx-ico svg{display:block}
+/* Home buttons */
+.nx-big{position:relative;overflow:hidden;justify-content:flex-start!important;gap:14px!important;padding:12px 16px!important;min-height:72px!important;text-align:left;border-radius:22px!important;transition:transform .35s var(--nx-spring),box-shadow .25s;-webkit-tap-highlight-color:transparent}
+.nx-big:active{transform:scale(.96)}
+.nx-big-txt{display:flex;flex-direction:column;gap:2px;font-size:inherit}
+.nx-big-txt b{font-size:18px;font-weight:800;letter-spacing:-.01em}
+.nx-big-txt small{font-size:12.5px;font-weight:500;opacity:.85}
+.nx-big-primary{background:linear-gradient(135deg,#2bd69b 0%,#0f9d6e 100%)!important;box-shadow:0 14px 30px -8px rgba(15,157,110,.65),inset 0 1px 0 rgba(255,255,255,.4)!important}
+.nx-big-secondary{background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.08))!important;-webkit-backdrop-filter:blur(16px) saturate(160%);backdrop-filter:blur(16px) saturate(160%);border:1px solid rgba(255,255,255,.5)!important;box-shadow:0 10px 28px -10px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.5)}
+.nx-big-primary::after{content:"";position:absolute;top:0;bottom:0;width:60px;left:-90px;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-18deg);animation:nxShine 4.5s ease-in-out infinite}
+@keyframes nxShine{0%,55%{transform:translateX(0) skewX(-18deg)}100%{transform:translateX(560px) skewX(-18deg)}}
+@media(hover:hover){.nx-big:hover{transform:translateY(-2px)}}
+/* Scanner page: camera card */
+html body.pulse-shell #page-nutri .nutri-scan-card{background:radial-gradient(120% 100% at 100% 0,#1d7a5d 0,transparent 55%),linear-gradient(165deg,#0b2a21,#0d3a2c 80%)!important;border-radius:28px!important;box-shadow:0 26px 50px -22px rgba(6,40,29,.75),inset 0 1px 0 rgba(255,255,255,.12)!important}
+html body.pulse-shell #page-nutri .nutri-scan-card #nutri-scan-btn{min-height:118px!important;border:0!important;border-radius:24px!important;gap:16px!important;justify-content:flex-start!important;padding:0 20px!important;font-size:18px!important;font-weight:800!important;letter-spacing:-.01em;background:linear-gradient(135deg,#36e0a6 0%,#12a874 100%)!important;color:#fff!important;box-shadow:0 18px 34px -12px rgba(18,168,116,.8),inset 0 1px 0 rgba(255,255,255,.5)!important;transition:transform .35s var(--nx-spring),box-shadow .25s;overflow:hidden}
+html body.pulse-shell #page-nutri .nutri-scan-card #nutri-scan-btn:active{transform:scale(.97)}
+html body.pulse-shell #page-nutri .nutri-scan-card #nutri-scan-btn::before{content:"";width:60px;height:60px;border-radius:20px;flex:none;animation:nxRing 2.6s ease-out infinite;background:rgba(255,255,255,.22) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2'/><path d='M8 9v6M11 9v6M14 9v6M17 9v6' stroke-width='1.8'/></svg>") center/32px no-repeat;box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+@keyframes nxRing{0%{box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 0 0 0 rgba(255,255,255,.5)}70%,100%{box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 0 0 16px rgba(255,255,255,0)}}
+html body.pulse-shell #page-nutri .nutri-scan-card #nutri-scan-btn::after{left:0!important;right:0!important;height:2px;top:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),transparent)!important;box-shadow:0 0 16px 3px rgba(255,255,255,.55)!important;animation:nxLaser2 2.8s ease-in-out infinite alternate!important}
+@keyframes nxLaser2{from{transform:translateY(14px);opacity:.2}to{transform:translateY(104px);opacity:.9}}
+/* Compare: attractive card (collapsed state) */
+.nx-acc-rich{display:flex!important;align-items:center;gap:14px;width:100%;padding:16px 18px!important;border:0!important;border-radius:24px!important;background:linear-gradient(135deg,#6a5cff 0%,#9b5cf6 100%)!important;color:#fff!important;box-shadow:0 16px 32px -12px rgba(106,92,255,.7),inset 0 1px 0 rgba(255,255,255,.4)!important;text-align:left;transition:transform .35s var(--nx-spring)}
+.nx-acc-rich:active{transform:scale(.97)}
+.nx-acc-rich .nx-ico{animation:nxFloat 3.6s ease-in-out infinite}
+.nx-acc-txt{display:flex;flex-direction:column;gap:2px;flex:1}
+.nx-acc-txt b{font-size:17px;font-weight:800}.nx-acc-txt small{font-size:12.5px;opacity:.88;font-weight:500}
+.nx-acc-rich::after{color:#fff;font-size:18px}
+@keyframes nxFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+/* Health: "Ajouter un repas" centred, glass, spring */
+#nh-existing.nx-add-meal{grid-column:1/-1;width:100%;margin:6px auto;padding:0;background:transparent!important;border:0!important;box-shadow:none!important}
+#nh-existing.nx-add-meal>summary{display:flex!important;align-items:center;gap:14px;width:min(100%,460px);margin:0 auto;padding:18px 20px!important;border-radius:28px!important;color:#fff!important;cursor:pointer;list-style:none;position:relative;overflow:hidden;
+ background:linear-gradient(135deg,rgba(38,214,155,.96),rgba(14,140,98,.96))!important;-webkit-backdrop-filter:blur(18px) saturate(170%);backdrop-filter:blur(18px) saturate(170%);
+ box-shadow:0 22px 44px -14px rgba(14,140,98,.7),0 4px 10px rgba(14,140,98,.25),inset 0 1.5px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(0,0,0,.08)!important;
+ transition:transform .45s var(--nx-spring),box-shadow .3s;animation:nxFloat 4.2s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+#nh-existing.nx-add-meal>summary::-webkit-details-marker{display:none}
+#nh-existing.nx-add-meal>summary::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.28),transparent 55%);pointer-events:none}
+#nh-existing.nx-add-meal>summary::after{content:"";position:absolute;top:0;bottom:0;width:70px;left:-110px;background:linear-gradient(100deg,transparent,rgba(255,255,255,.3),transparent);transform:skewX(-18deg);animation:nxShine 5s ease-in-out infinite}
+#nh-existing.nx-add-meal>summary:active{transform:scale(.95);animation:none}
+#nh-existing.nx-add-meal>summary .nx-ico{width:54px;height:54px;border-radius:18px;background:rgba(255,255,255,.26)}
+.nx-meal-txt{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}
+.nx-meal-txt b{font-size:19px;font-weight:800;letter-spacing:-.01em}
+.nx-meal-txt small{font-size:12.5px;opacity:.9;font-weight:500}
+.nx-chev{width:10px;height:10px;border-right:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(45deg);margin-right:6px;transition:transform .35s var(--nx-spring);flex:none}
+#nh-existing.nx-add-meal[open]>summary .nx-chev{transform:rotate(-135deg)}
+#nh-existing.nx-add-meal[open]>summary{animation:none}
+#nh-existing.nx-add-meal .nh-existing-mount{margin-top:16px}
+@media(prefers-reduced-motion:reduce){.nx-big-primary::after,#nh-existing.nx-add-meal>summary::after{display:none}.nx-acc-rich .nx-ico,#nh-existing.nx-add-meal>summary,html body.pulse-shell #page-nutri .nutri-scan-card #nutri-scan-btn::before,html body.pulse-shell #page-nutri .nutri-scan-card #nutri-scan-btn::after{animation:none!important}}
+/* order inside the health grid: Aujourd'hui, Objectifs, [Ajouter un repas], Activité, Tendance */
+#nh-dashboard .nh-grid>.nh-overview{order:1!important}
+#nh-dashboard .nh-grid>.nh-goals{order:2!important}
+#nh-dashboard .nh-grid>#nh-existing.nx-add-meal{order:3!important}
+#nh-dashboard .nh-grid>.nh-activity{order:4!important}
+#nh-dashboard .nh-grid>.nh-heart{order:5!important}
+#nh-existing.nx-add-meal>summary span.nx-meal-txt{display:flex!important;flex-direction:column;margin:0!important;opacity:1!important;font-size:inherit!important;font-weight:inherit!important}
+#nh-existing.nx-add-meal>summary .nx-meal-txt small{display:block!important}
+#nh-existing.nx-add-meal>summary svg{stroke:currentColor!important}
+
+/* ===== Robot assistant: bottom-right launcher + top of chat panel (never in the middle) ===== */
+html body #v11-ai-launch.nx-robot-fab{width:74px!important;height:86px!important;min-width:74px!important;min-height:86px!important;border:0!important;border-radius:0!important;background:transparent!important;background-image:none!important;box-shadow:none!important;padding:0!important;display:block!important;right:8px!important;bottom:calc(76px + env(safe-area-inset-bottom,0px))!important;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:transform .35s var(--nx-spring)}
+html body #v11-ai-launch.nx-robot-fab:active{transform:scale(.9)}
+html body #v11-ai-launch.nx-robot-fab svg.nx-robot{width:100%!important;height:100%!important;fill:initial!important;stroke:initial!important;stroke-width:initial!important;filter:drop-shadow(0 8px 10px rgba(4,120,87,.35))!important;overflow:visible}
+@media(min-width:701px){html body #v11-ai-launch.nx-robot-fab{right:22px!important;bottom:22px!important}}
+.nx-r-float{animation:nxRobFloat 3.4s ease-in-out infinite;transform-origin:40px 90px}
+.nx-r-eyes{transform-box:fill-box;transform-origin:center;animation:nxBlink 5s infinite}
+.nx-r-wave{transform-box:fill-box;transform-origin:50% 12%;animation:nxWave 2.8s ease-in-out infinite}
+.nx-r-bulb{animation:nxBulb 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.nx-r-heart{transform-box:fill-box;transform-origin:center;animation:nxBeat 1.6s ease-in-out infinite}
+.nx-r-ant{transform-box:fill-box;transform-origin:50% 100%;animation:nxAnt 3.4s ease-in-out infinite}
+@keyframes nxRobFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes nxBlink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes nxWave{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(-28deg)}80%{transform:rotate(8deg)}90%{transform:rotate(-24deg)}}
+@keyframes nxBulb{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.8)}}
+@keyframes nxBeat{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+@keyframes nxAnt{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.nx-robot-bubble{position:fixed;right:78px;bottom:calc(116px + env(safe-area-inset-bottom,0px));z-index:119;background:#fff;color:#0b2f2a;font:700 14px/1.2 inherit;padding:10px 14px;border-radius:16px 16px 4px 16px;box-shadow:0 12px 30px rgba(6,60,45,.25);opacity:0;transform:translateY(6px) scale(.95);transition:opacity .35s,transform .45s var(--nx-spring);pointer-events:none}
+.nx-robot-bubble.show{opacity:1;transform:none}
+@media(min-width:701px){.nx-robot-bubble{right:96px;bottom:60px}}
+.nx-robot-head{width:44px;height:52px;flex:none;margin-right:10px}
+.nx-robot-head .nx-robot{width:100%;height:100%;display:block;overflow:visible}
+.v11-ai-top{align-items:center}
+.nx-welcome .nx-spark{display:none!important}
+@media(prefers-reduced-motion:reduce){.nx-r-float,.nx-r-eyes,.nx-r-wave,.nx-r-bulb,.nx-r-heart,.nx-r-ant{animation:none!important}}
+
+/* ===== Colourful cards: each box gets its own colour, lift on hover/press, soft entrance ===== */
+:root{--c-green:#10b981;--c-blue:#3b82f6;--c-orange:#f59e0b;--c-rose:#f43f5e;--c-violet:#8b5cf6;--c-teal:#14b8a6}
+@keyframes nxUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.nh-card,.nutri-search-card,#nutri-feature-card,.nutri-bottom-grid>.card,.explore-hero,.explore-lower>.card,.pulse-articles .nx-morocco-items>*,#nx-morocco .nx133-product{--ac:var(--c-green);position:relative;border:1.5px solid color-mix(in srgb,var(--ac) 30%,#fff)!important;border-top:5px solid var(--ac)!important;border-radius:22px!important;background:linear-gradient(180deg,#fff 0%,#fff 38%,color-mix(in srgb,var(--ac) 11%,#fff) 100%)!important;box-shadow:0 14px 28px -14px color-mix(in srgb,var(--ac) 65%,transparent),0 2px 6px rgba(15,23,42,.05)!important;transition:transform .4s var(--nx-spring),box-shadow .3s;animation:nxUp .55s both}
+.nh-card:active,.nutri-search-card:active,#nutri-feature-card:active,.nutri-bottom-grid>.card:active,.pulse-articles .nx-morocco-items>*:active{transform:scale(.985)}
+@media(hover:hover){.nh-card:hover,.nutri-search-card:hover,#nutri-feature-card:hover,.nutri-bottom-grid>.card:hover,.pulse-articles .nx-morocco-items>*:hover{transform:translateY(-4px);box-shadow:0 22px 36px -14px color-mix(in srgb,var(--ac) 70%,transparent),0 2px 6px rgba(15,23,42,.06)!important}}
+.nh-overview{--ac:var(--c-green)}.nh-goals{--ac:var(--c-blue)}.nh-activity{--ac:var(--c-orange)}.nh-heart{--ac:var(--c-rose)}
+.nutri-search-card{--ac:var(--c-teal)}#nutri-feature-card{--ac:var(--c-blue)}
+.nutri-bottom-grid>.card:nth-child(1){--ac:var(--c-orange)}.nutri-bottom-grid>.card:nth-child(2){--ac:var(--c-rose)}
+.explore-hero{--ac:var(--c-green)}.explore-lower>.card:nth-child(1){--ac:var(--c-orange)}.explore-lower>.card:nth-child(2){--ac:var(--c-rose)}
+.pulse-articles .nx-morocco-items>*:nth-child(3n+1){--ac:var(--c-green)}.pulse-articles .nx-morocco-items>*:nth-child(3n+2){--ac:var(--c-orange)}.pulse-articles .nx-morocco-items>*:nth-child(3n){--ac:var(--c-blue)}
+.nh-card:nth-child(2){animation-delay:.06s}.nh-card:nth-child(3){animation-delay:.12s}.nh-card:nth-child(4){animation-delay:.18s}
+.nh-card h3,.nh-card h2,.nutri-card-head h3{color:color-mix(in srgb,var(--ac) 70%,#0b2f2a)}
+body.dark .nh-card,body.dark .nutri-search-card,body.dark #nutri-feature-card,body.dark .nutri-bottom-grid>.card,body.dark .explore-hero,body.dark .explore-lower>.card{background:linear-gradient(180deg,#16212b,color-mix(in srgb,var(--ac) 14%,#16212b))!important;border-color:color-mix(in srgb,var(--ac) 40%,#16212b)!important}
+@media(prefers-reduced-motion:reduce){.nh-card,.nutri-search-card,#nutri-feature-card,.nutri-bottom-grid>.card,.explore-hero,.explore-lower>.card{animation:none!important}}
+
+/* ===== Compare two products: appetising (tomato / orange / lemon) ===== */
+.nx-acc-rich{background:linear-gradient(120deg,#ff5a4d 0%,#ff8a3d 55%,#ffc233 100%)!important;box-shadow:0 18px 34px -12px rgba(255,90,77,.65),inset 0 1px 0 rgba(255,255,255,.5)!important;position:relative;overflow:hidden;padding-right:84px!important}
+.nx-acc-rich::before{content:"";position:absolute;right:34px;top:50%;width:54px;height:54px;margin-top:-27px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><path d='M32 20c-6-5-18-2-18 12 0 12 8 24 14 24 3 0 3-1.5 4-1.5s1 1.5 4 1.5c6 0 14-12 14-24 0-14-12-17-18-12z' fill='%23ef4444'/><path d='M22 30c0-5 3-8 6-9' stroke='%23fff' stroke-opacity='.5' stroke-width='3' fill='none' stroke-linecap='round'/><path d='M32 20c0-6 3-10 8-12' stroke='%23553322' stroke-width='3' fill='none' stroke-linecap='round'/><path d='M38 10c5-3 11 0 9 5-4 2-8 1-9-5z' fill='%2322c55e'/></svg>") center/contain no-repeat;animation:nxFloat 3s ease-in-out infinite;pointer-events:none;filter:drop-shadow(0 6px 6px rgba(0,0,0,.2))}
+.nx-acc-rich .nx-acc-txt::after{content:"";position:absolute;right:-18px;bottom:-22px;width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.14);pointer-events:none}
+.nx-acc-rich .nx-ico{background:rgba(255,255,255,.28)}
+#nutri-compare-card.open{background:linear-gradient(180deg,#fff7ed,#ffe9d6)!important;border:1.5px solid #ffd2b0!important;border-radius:26px!important;padding:14px!important;box-shadow:0 18px 36px -16px rgba(255,120,60,.55)!important}
+#nutri-compare-card.open>.nx-acc-toggle{margin-bottom:14px}
+#nutri-compare-card.open .nutri-card-head{display:none}
+#nutri-compare-card .nutri-compare-pickers select{border:1.5px solid #ffc9a3;background:#fff;border-radius:14px;padding:12px;font-weight:600}
+#nutri-compare-card .nutri-compare-pickers label{font-weight:700;color:#9a3412}
+#nutri-compare-card .nx-compare-head{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:8px}
+#nutri-compare-card .nx-duel-card{border-radius:20px!important;padding:12px 8px!important;text-align:center;background:linear-gradient(160deg,#fff,#fff2e6)!important;border:2px dashed #ffb27d!important;box-shadow:0 10px 20px -12px rgba(255,120,60,.6)}
+#nutri-compare-card .nx-duel-card:nth-child(3){background:linear-gradient(160deg,#fff,#effbe9)!important;border-color:#8bd88b!important;box-shadow:0 10px 20px -12px rgba(34,160,80,.6)}
+#nutri-compare-card .nx-duel-photo{display:grid;place-items:center;height:92px;border-radius:16px;margin-bottom:8px;background:center/62px no-repeat,radial-gradient(circle at 50% 40%,#fff,#ffe3cc)}
+#nutri-compare-card .nx-duel-card.empty .nx-duel-photo{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='24' fill='%23ffa726'/><circle cx='32' cy='32' r='20' fill='%23ffcc66'/><g stroke='%23ffa726' stroke-width='2'><path d='M32 12v40M12 32h40M18 18l28 28M46 18L18 46'/></g><circle cx='32' cy='32' r='4' fill='%23fff3d6'/></svg>"),radial-gradient(circle at 50% 40%,#fff,#ffe3cc)}
+#nutri-compare-card .nx-duel-card.empty:nth-child(3) .nx-duel-photo{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><path d='M32 22c-6-5-18-2-18 12 0 12 8 22 14 22 3 0 3-1.5 4-1.5s1 1.5 4 1.5c6 0 14-10 14-22 0-14-12-17-18-12z' fill='%2322c55e'/><path d='M32 22c0-6 3-10 8-12' stroke='%23553322' stroke-width='3' fill='none' stroke-linecap='round'/><path d='M39 11c5-3 10 0 9 4-4 2-8 1-9-4z' fill='%2316a34a'/></svg>"),radial-gradient(circle at 50% 40%,#fff,#e3f8dc)}
+#nutri-compare-card .nx-duel-photo span{display:none}
+#nutri-compare-card .nx-duel-card:not(.empty) .nx-duel-photo{background:#fff}
+#nutri-compare-card .nx-vs{align-self:center;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:15px;color:#fff;background:linear-gradient(135deg,#ef4444,#f59e0b);box-shadow:0 8px 18px -4px rgba(239,68,68,.7);animation:nxBeat 1.8s ease-in-out infinite}
+#nutri-compare-card .nx-duel-name{color:#9a3412}
+#nutri-compare-card #v5-ai-compare{background:linear-gradient(135deg,#ff6b3d,#ffb02e)!important;color:#fff!important;border:0!important;border-radius:16px!important;padding:14px 18px!important;font-weight:800!important;box-shadow:0 12px 24px -10px rgba(255,107,61,.8)!important;width:100%}
+#nutri-compare-card #v5-ai-compare:disabled{opacity:.55;box-shadow:none!important}
+#nutri-compare-card .nx-compare-head .nx-vs{position:static!important;inset:auto!important;transform:none;margin:0!important;grid-column:2}
+
+/* ===== Calm pass: minimal, consistent brand green (#0f7a5a) ===== */
+:root{--nx-brand:#0f7a5a;--nx-brand2:#12906a;--nx-line:#dbe8e0;--nx-ink:#153222;--nx-muted:#5b7066}
+/* Retry / empty state */
+.nx-empty-state{display:grid;justify-items:center;gap:8px;text-align:center;padding:26px 18px;border-radius:20px;background:#fff;border:1px dashed #c3d9cc;color:var(--nx-muted)}
+.nx-empty-state svg{color:var(--nx-brand2);opacity:.9}
+.nx-empty-state strong{color:var(--nx-ink);font-size:16px}
+.nx-empty-state span{font-size:13.5px}
+.pulse-articles .nx-morocco-items>.nx-empty-state,#nx-morocco .nx-morocco-items>.nx-empty-state{border:1px dashed #c3d9cc!important;border-top:1px dashed #c3d9cc!important;background:#fff!important;box-shadow:none!important;animation:none}
+.nx-retry{margin-top:6px;padding:11px 26px;border-radius:999px;border:1.5px solid var(--nx-brand);background:#fff;color:var(--nx-brand);font:700 15px/1 inherit;cursor:pointer;transition:transform .3s var(--nx-spring),background .2s,color .2s}
+.nx-retry:hover{background:var(--nx-brand);color:#fff}.nx-retry:active{transform:scale(.94)}
+/* Ajouter un repas: first block of the Santé page, flat brand colour */
+#nh-dashboard .nh-grid>#nh-existing.nx-add-meal{order:0!important;margin:0 0 4px!important}
+#nh-existing.nx-add-meal>summary{width:100%!important;max-width:none!important;margin:0!important;padding:14px 16px!important;border-radius:18px!important;background:linear-gradient(135deg,var(--nx-brand2),var(--nx-brand))!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;animation:none!important;box-shadow:0 10px 20px -12px rgba(15,122,90,.7)!important;transition:transform .35s var(--nx-spring)}
+#nh-existing.nx-add-meal>summary::before,#nh-existing.nx-add-meal>summary::after{display:none!important}
+#nh-existing.nx-add-meal>summary .nx-ico{width:42px;height:42px;border-radius:13px;background:rgba(255,255,255,.18);box-shadow:none}
+.nx-meal-txt b{font-size:16px!important}.nx-meal-txt small{font-size:12px!important}
+/* Scanner: light, minimal card + one solid button */
+html body.pulse-shell #page-nutri .nutri-scan-card{background:#fff!important;border:1px solid var(--nx-line)!important;border-top:1px solid var(--nx-line)!important;border-radius:22px!important;box-shadow:0 8px 22px -14px rgba(15,60,40,.35)!important}
+html body.pulse-shell #page-nutri .nutri-scan-card::before,html body.pulse-shell #page-nutri .nutri-scan-card::after{display:none!important}
+html body.pulse-shell #page-nutri .nutri-scan-card .nutri-card-head h3{color:var(--nx-ink)!important}
+html body.pulse-shell #page-nutri .nutri-scan-card .nutri-chip{background:#e9f6ef!important;color:var(--nx-brand)!important}
+html body.pulse-shell #page-nutri .nutri-scan-card #nutri-scan-btn{min-height:76px!important;border-radius:18px!important;padding:0 16px!important;font-size:16px!important;background:linear-gradient(135deg,var(--nx-brand2),var(--nx-brand))!important;box-shadow:0 10px 20px -12px rgba(15,122,90,.8)!important}
+html body.pulse-shell #page-nutri .nutri-scan-card #nutri-scan-btn::before{width:46px;height:46px;border-radius:14px;background-size:26px;animation:none!important}
+html body.pulse-shell #page-nutri .nutri-scan-card #nutri-scan-btn::after{display:none!important}
+html body.pulse-shell #page-nutri .nutri-scan-card .nutri-scan-row input{background:#f4f8f5!important;border:1px solid var(--nx-line)!important;color:var(--nx-ink)!important}
+html body.pulse-shell #page-nutri .nutri-scan-card .nutri-scan-row input::placeholder{color:#8aa196}
+html body.pulse-shell #page-nutri .nutri-scan-card #nutri-barcode-btn{background:var(--nx-brand)!important;color:#fff!important}
+/* Comparer: slim white bar, green outline, small VS tag, gentle pulse on the icon */
+.nx-acc-rich{background:#fff!important;color:var(--nx-ink)!important;border:1.5px solid var(--nx-brand2)!important;border-radius:18px!important;padding:12px 14px!important;box-shadow:0 8px 18px -12px rgba(15,122,90,.6)!important}
+.nx-acc-rich::before{content:"VS";position:absolute;right:46px;left:auto;top:50%;width:auto;height:auto;margin:0;transform:translateY(-50%);background:#e9f6ef;color:var(--nx-brand);font:800 11px/1 inherit;letter-spacing:.06em;padding:6px 9px;border-radius:999px;filter:none;animation:none}
+.nx-acc-rich .nx-acc-txt::after{display:none}
+.nx-acc-rich .nx-ico{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--nx-brand2),var(--nx-brand));box-shadow:none;animation:nxPing 2.6s ease-out infinite}
+.nx-acc-rich .nx-acc-txt b{font-size:16px;color:var(--nx-ink)}.nx-acc-rich .nx-acc-txt small{color:var(--nx-muted);opacity:1}
+.nx-acc-rich::after{color:var(--nx-brand)!important}
+@keyframes nxPing{0%{box-shadow:0 0 0 0 rgba(18,144,106,.45)}70%,100%{box-shadow:0 0 0 12px rgba(18,144,106,0)}}
+/* Comparer opened */
+#nutri-compare-card.open{background:#fff!important;border:1px solid var(--nx-line)!important;box-shadow:0 8px 22px -14px rgba(15,60,40,.35)!important}
+#nutri-compare-card .nutri-compare-pickers label{color:var(--nx-ink)}
+#nutri-compare-card .nutri-compare-pickers select{border:1px solid var(--nx-line);background:#f7fbf9}
+#nutri-compare-card .nx-duel-card,#nutri-compare-card .nx-duel-card:nth-child(3){background:#f7fbf9!important;border:1.5px dashed #b9d6c8!important;box-shadow:none}
+#nutri-compare-card .nx-duel-name{color:var(--nx-ink)}
+#nutri-compare-card .nx-vs{background:var(--nx-brand);box-shadow:0 6px 14px -6px rgba(15,122,90,.7);animation:none}
+#nutri-compare-card #v5-ai-compare{background:var(--nx-brand)!important;box-shadow:none!important;border-radius:14px!important}
+@media(prefers-reduced-motion:reduce){.nx-acc-rich .nx-ico{animation:none!important}}
+
+#nh-existing.nx-add-meal>summary .nx-ico svg{stroke:#fff!important}
+html body.pulse-shell #page-nutri .nutri-scan-card .nutri-scan-row input{background:#eef5f0!important;border:1.5px solid #c3d9cc!important}
+.nx-acc.open>.nx-acc-toggle::before{display:none}
+html body.pulse-shell #page-nutri .nutri-scan-card .nutri-scan-row #nutri-barcode{background:#eef5f0!important;background-color:#eef5f0!important;border:1.5px solid #c3d9cc!important;color:#153222!important;-webkit-text-fill-color:#153222}
+html body.pulse-shell #page-nutri .nutri-scan-card .nutri-scan-row #nutri-barcode::placeholder{color:#7f9a8d!important;-webkit-text-fill-color:#7f9a8d}

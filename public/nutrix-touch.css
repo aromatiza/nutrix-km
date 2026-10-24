@@ -1,0 +1,197 @@
+/* ===== NUTRIX touch — olive gradient, minimal compare, home buttons =====
+   Loaded last: only overrides look & feel, no markup/logic changes. */
+:root{
+  --nt-olive-1:#c5d24b;   /* olive lime */
+  --nt-olive-2:#8fa32c;   /* olive */
+  --nt-olive-3:#5f7a1f;   /* deep olive */
+  --nt-sun:#f0a93a;       /* saffron: warm partner of olive */
+  --nt-ink:#1b2a14;
+  --nt-spring:cubic-bezier(.34,1.56,.64,1);
+}
+
+/* ---------- Shared: slow gradient drift + glossy sheen ---------- */
+@keyframes ntDrift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes ntSheen{0%,60%{transform:translateX(-140%) skewX(-20deg)}100%{transform:translateX(520%) skewX(-20deg)}}
+@keyframes ntBob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-3px) rotate(-4deg)}}
+@keyframes ntPop{0%{box-shadow:0 0 0 0 rgba(240,169,58,.55)}70%,100%{box-shadow:0 0 0 12px rgba(240,169,58,0)}}
+@keyframes ntSpin{to{transform:rotate(360deg)}}
+
+/* ---------- 1) AJOUTER UN REPAS — olive gradient (Santé) ---------- */
+#nh-existing.nx-add-meal>summary{
+  position:relative;overflow:hidden;isolation:isolate;
+  padding:15px 16px!important;border-radius:22px!important;
+  background:linear-gradient(120deg,var(--nt-olive-3) 0%,var(--nt-olive-2) 45%,var(--nt-olive-1) 100%)!important;
+  background-size:220% 220%!important;
+  animation:ntDrift 9s ease-in-out infinite!important;
+  box-shadow:0 16px 28px -14px rgba(95,122,31,.85),inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(0,0,0,.08)!important;
+  color:#fff!important;text-shadow:0 1px 2px rgba(40,55,10,.35);
+}
+#nh-existing.nx-add-meal>summary::before{
+  display:block!important;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(60% 120% at 100% 0,rgba(255,255,255,.28),transparent 60%);
+}
+#nh-existing.nx-add-meal>summary::after{
+  display:block!important;content:"";position:absolute;top:0;bottom:0;left:0;width:46px;z-index:-1;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.38),transparent);
+  animation:ntSheen 5s ease-in-out infinite;
+}
+#nh-existing.nx-add-meal>summary .nx-ico{
+  width:44px;height:44px;border-radius:15px;
+  background:rgba(255,255,255,.26)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 6px 12px -6px rgba(40,55,10,.5)!important;
+  animation:ntBob 3.4s ease-in-out infinite;
+}
+#nh-existing.nx-add-meal>summary .nx-ico svg{stroke:#fff!important}
+#nh-existing.nx-add-meal>summary:active{transform:scale(.97)}
+#nh-existing.nx-add-meal[open]>summary{animation-play-state:paused!important}
+
+/* ---------- 2) COMPARER — minimal, colourful, animated ---------- */
+.nx-acc-rich{
+  position:relative;overflow:hidden;
+  color:var(--nt-ink)!important;border:1.5px solid transparent!important;border-radius:20px!important;padding:13px 14px!important;
+  /* white face + animated olive→saffron hairline */
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(110deg,var(--nt-olive-2),var(--nt-sun),var(--nt-olive-1),var(--nt-olive-2)) border-box!important;
+  background-size:100% 100%,300% 100%!important;
+  animation:ntDrift 7s linear infinite;
+  box-shadow:0 12px 24px -18px rgba(95,122,31,.8)!important;
+}
+.nx-acc-rich .nx-ico{
+  width:42px;height:42px;border-radius:14px;
+  background:linear-gradient(135deg,var(--nt-olive-1),var(--nt-sun))!important;
+  box-shadow:0 8px 14px -8px rgba(240,169,58,.9)!important;
+  animation:ntPop 2.8s ease-out infinite,ntBob 4s ease-in-out infinite!important;
+}
+.nx-acc-rich .nx-ico svg{stroke:#fff}
+.nx-acc-rich .nx-acc-txt b{font-size:16px;color:var(--nt-ink)}
+.nx-acc-rich .nx-acc-txt small{color:#6a7a58;opacity:1}
+.nx-acc-rich .nx-acc-txt::after{display:none!important}
+/* VS tag: saffron wash */
+.nx-acc-rich::before{
+  background:linear-gradient(135deg,#fff3d6,#ffe2a6)!important;color:#a8680a!important;
+  font-weight:800;letter-spacing:.08em;box-shadow:inset 0 0 0 1px rgba(240,169,58,.35);
+  animation:ntVs 2.4s ease-in-out infinite!important;
+}
+@keyframes ntVs{0%,100%{transform:translateY(-50%) scale(1)}50%{transform:translateY(-50%) scale(1.09)}}
+.nx-acc-rich::after{color:var(--nt-olive-3)!important}
+.nx-acc-rich:active{transform:scale(.97)}
+
+/* opened compare: same palette */
+#nutri-compare-card.open>.nx-acc-toggle{animation:none}
+#nutri-compare-card .nx-vs{background:linear-gradient(135deg,var(--nt-sun),#e08a1e)!important;box-shadow:0 8px 16px -8px rgba(224,138,30,.9)!important;animation:ntPop 2.6s ease-out infinite!important}
+#nutri-compare-card .nx-duel-card,#nutri-compare-card .nx-duel-card:nth-child(3){background:#fbfcf4!important;border:1.5px dashed #cbd68a!important}
+#nutri-compare-card #v5-ai-compare{background:linear-gradient(120deg,var(--nt-olive-3),var(--nt-olive-2),var(--nt-olive-1))!important;background-size:220% 220%!important;animation:ntDrift 8s ease-in-out infinite;color:#fff!important;box-shadow:0 12px 20px -12px rgba(95,122,31,.8)!important}
+#nutri-compare-card .nutri-compare-pickers select{background:#fbfcf4;border:1px solid #d9e2a8}
+
+/* ---------- 3) HOME — two hero buttons, a light touch ---------- */
+.pulse-hero-cta .nx-big{
+  min-height:70px!important;border-radius:22px!important;
+  border:1px solid rgba(255,255,255,.35)!important;
+  background-size:220% 220%!important;animation:ntDrift 10s ease-in-out infinite;
+}
+.pulse-hero-cta .nx-big-primary{
+  background-image:linear-gradient(120deg,#0b6e53 0%,#12a874 50%,#7fd8a6 100%)!important;
+  box-shadow:0 16px 30px -14px rgba(18,168,116,.9),inset 0 1px 0 rgba(255,255,255,.5)!important;
+}
+.pulse-hero-cta .nx-big-secondary{
+  background-image:linear-gradient(120deg,var(--nt-olive-3) 0%,var(--nt-olive-2) 50%,var(--nt-olive-1) 100%)!important;
+  -webkit-backdrop-filter:none;backdrop-filter:none;
+  box-shadow:0 16px 30px -14px rgba(143,163,44,.95),inset 0 1px 0 rgba(255,255,255,.5)!important;
+}
+.pulse-hero-cta .nx-big::after{ /* sheen on both */
+  content:"";position:absolute;top:0;bottom:0;left:0;width:44px;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);
+  animation:ntSheen 5.5s ease-in-out infinite!important;
+}
+.pulse-hero-cta .nx-big-secondary::after{animation-delay:1.4s!important}
+.pulse-hero-cta .nx-big .nx-ico{
+  width:46px;height:46px;border-radius:15px;background:rgba(255,255,255,.26);
+  animation:ntBob 3.6s ease-in-out infinite;
+}
+.pulse-hero-cta .nx-big-secondary .nx-ico{animation-delay:.6s}
+.pulse-hero-cta .nx-big-txt b{text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.pulse-hero-cta .nx-big-txt small{opacity:.92}
+/* small arrow that nudges on hover/press */
+.pulse-hero-cta .nx-big{padding-right:44px!important}
+.pulse-hero-cta .nx-big::before{
+  content:"";position:absolute;right:18px;top:50%;width:9px;height:9px;margin-top:-6px;
+  border-right:2.5px solid rgba(255,255,255,.9);border-top:2.5px solid rgba(255,255,255,.9);transform:rotate(45deg);
+  transition:transform .3s var(--nt-spring);
+}
+@media(hover:hover){.pulse-hero-cta .nx-big:hover::before{transform:translateX(4px) rotate(45deg)}}
+
+@media(prefers-reduced-motion:reduce){
+  #nh-existing.nx-add-meal>summary,#nh-existing.nx-add-meal>summary .nx-ico,
+  .nx-acc-rich,.nx-acc-rich .nx-ico,.nx-acc-rich::before,#nutri-compare-card .nx-vs,#nutri-compare-card #v5-ai-compare,
+  .pulse-hero-cta .nx-big,.pulse-hero-cta .nx-big .nx-ico{animation:none!important}
+  #nh-existing.nx-add-meal>summary::after,.pulse-hero-cta .nx-big::after{display:none!important}
+}
+
+/* =====================  v2 — plus petit, plus net  ===================== */
+
+/* ---- HOME: boutons compacts ---- */
+.pulse-hero-cta{gap:9px!important}
+.pulse-hero-cta .nx-big{
+  min-height:54px!important;padding:8px 38px 8px 10px!important;gap:11px!important;border-radius:16px!important;
+}
+.pulse-hero-cta .nx-big .nx-ico{width:36px;height:36px;border-radius:12px}
+.pulse-hero-cta .nx-big .nx-ico svg{width:20px;height:20px}
+.pulse-hero-cta .nx-big-txt{gap:1px}
+.pulse-hero-cta .nx-big-txt b{font-size:15px!important;line-height:1.15}
+.pulse-hero-cta .nx-big-txt small{font-size:11.5px!important}
+.pulse-hero-cta .nx-big::before{right:15px;width:7px;height:7px;margin-top:-4px;border-width:2px}
+@media(min-width:701px){.pulse-hero-cta{max-width:420px}}
+
+/* ---- COMPARER (barre fermée): petite pastille nette, centrée ---- */
+#nutri-compare-card:not(.open){
+  background:none!important;border:0!important;box-shadow:none!important;padding:0!important;margin:6px 0!important;
+  overflow:visible!important;display:flex;justify-content:center;
+}
+#nutri-compare-card:not(.open)::before,#nutri-compare-card:not(.open)::after{display:none!important;content:none!important}
+#nutri-compare-card:not(.open)>.nx-acc-toggle{
+  width:auto!important;min-width:0;max-width:100%;
+  padding:7px 12px 7px 8px!important;gap:10px!important;border-radius:999px!important;
+  border:1.5px solid #cfdc8a!important;overflow:visible!important;
+  background:linear-gradient(100deg,#ffffff 0%,#f6f9e2 40%,#fff4dc 70%,#ffffff 100%)!important;
+  background-size:300% 100%!important;animation:ntDrift 6s linear infinite!important;
+  box-shadow:0 8px 18px -12px rgba(95,122,31,.75)!important;
+}
+#nutri-compare-card .nx-acc-rich .nx-acc-txt small{display:none!important}
+#nutri-compare-card .nx-acc-rich .nx-acc-txt b{font-size:14.5px;white-space:nowrap}
+#nutri-compare-card .nx-acc-rich .nx-ico{width:32px;height:32px;border-radius:50%!important}
+#nutri-compare-card .nx-acc-rich .nx-ico svg{width:17px;height:17px}
+#nutri-compare-card .nx-acc-rich{flex:0 0 auto}
+/* VS reste dans le flux, plus de chevauchement */
+#nutri-compare-card .nx-acc-rich::before{
+  position:static!important;transform:none!important;order:2;margin:0!important;
+  font-size:10.5px!important;padding:4px 8px!important;color:#a8680a!important;
+  animation:ntVs2 2.4s ease-in-out infinite!important;
+}
+#nutri-compare-card .nx-acc-rich::after{order:3;font-size:12px!important}
+@keyframes ntVs2{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+/* barre ouverte: pleine largeur, bords nets */
+#nutri-compare-card.open>.nx-acc-toggle{width:100%!important;border-radius:16px!important;border:1.5px solid #cfdc8a!important;background:#fff!important;animation:none!important}
+
+/* ---- Cartes Produit A / B animées ---- */
+#nutri-compare .nx-duel-card,#nutri-compare-card .nx-duel-card{
+  position:relative;overflow:hidden;
+  animation:ntRise .6s var(--nt-spring) both,ntBorder 3.6s ease-in-out infinite;
+}
+#nutri-compare .nx-duel-card:nth-child(3),#nutri-compare-card .nx-duel-card:nth-of-type(2){animation-delay:.12s,.6s}
+@keyframes ntRise{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes ntBorder{0%,100%{border-color:#cbd68a;box-shadow:0 0 0 0 rgba(143,163,44,0)}50%{border-color:#e6b765;box-shadow:0 10px 22px -14px rgba(240,169,58,.7)}}
+#nutri-compare .nx-duel-card::after,#nutri-compare-card .nx-duel-card::after{
+  content:"";position:absolute;top:0;bottom:0;left:0;width:40px;pointer-events:none;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);
+  animation:ntSheen 5s ease-in-out infinite;
+}
+#nutri-compare .nx-duel-photo,#nutri-compare-card .nx-duel-photo{animation:ntFloat 3.8s ease-in-out infinite}
+#nutri-compare .nx-duel-card:nth-of-type(2) .nx-duel-photo{animation-delay:-1.9s}
+@keyframes ntFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(2deg)}}
+#nutri-compare .nx-duel-card.win,#nutri-compare-card .nx-duel-card.win{animation:ntRise .6s var(--nt-spring) both}
+@media(prefers-reduced-motion:reduce){
+  #nutri-compare-card:not(.open)>.nx-acc-toggle,#nutri-compare .nx-duel-card,#nutri-compare .nx-duel-photo,
+  #nutri-compare-card .nx-duel-card,#nutri-compare-card .nx-duel-photo,#nutri-compare-card .nx-acc-rich::before{animation:none!important}
+  #nutri-compare .nx-duel-card::after,#nutri-compare-card .nx-duel-card::after{display:none}
+}
